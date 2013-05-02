@@ -1,2 +1,9 @@
 #!/usr/bin/env ruby
-require "bundler/setup"
+
+# trap interrupts and quit cleany
+Signal.trap("INT") { exit 1 }
+
+require "gesund"
+require "gesund/cli"
+
+Gesund::CLI.start
