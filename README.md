@@ -2,7 +2,7 @@
 
 To have healthy servers, it is important to have an automated check that can tell you if something is wrong. Gesund for the rescue!
 
-Gesund is a simple health checker that provides ready classes to do various checks against servers, filesystem state and more. Currently the ```gesund``` gem itself only has a small number of file system checks, and several additional gems provide checks for redis, mysql, mongodb and http.
+Gesund is a simple health checker that provides ready classes to do various checks against running services, filesystem state and more. Currently the ```gesund``` gem itself only has a small number of file system checks, and several additional gems provide checks for redis, mysql, mongodb and http.
 
 This project is early alpha - you are welcome to help out and make it shine.
 
