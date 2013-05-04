@@ -18,7 +18,8 @@ class Gesund::Dsl
       check_class = Gesund::Checks.const_get(camel_name)
     rescue NameError => e
       e.backtrace.join =~ /Gesundfile:(\d+)/
-      puts "line number: #{$1}"
+      print "ERROR Gesundfile:#{$1}: "
+      puts "#{e.message}"
       exit 1
     end
     raise Gesund::Errors::CheckNotFound unless check_class
