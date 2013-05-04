@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Gesund::VERSION
   spec.authors       = ["Evgeny Zislis"]
   spec.email         = ["evgeny@devops.co.il"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Gesund is a simple health checker.}
+  spec.summary       = %q{Health checker for services and state.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
