@@ -23,4 +23,12 @@ describe "Gesund::Check module" do
     dummy_check.success = true
     dummy_check.call.should == [500, headers, ["Class is broken!"]]
   end
+  it "fails when fail is called" do
+    dummy_check.fail("booo!")
+    dummy_check.call.should == [500, headers, ["booo!"]]
+  end
+  it "passes when pass is called" do
+    dummy_check.pass("yey!")
+    dummy_check.call.should == [200, headers, ["yey!"]]
+  end
 end

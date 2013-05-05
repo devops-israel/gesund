@@ -8,5 +8,16 @@ module Gesund
       status  = 500 unless self.message
       return [status, headers, [message]]
     end
+
+    def fail(message)
+      self.success = false
+      self.message = message
+    end
+
+    def pass(message)
+      self.success = true
+      self.message = message
+    end
+
   end
 end
