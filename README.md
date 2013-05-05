@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/devops-israel/gesund.png)](https://travis-ci.org/devops-israel/gesund)
+
 # Gesund
 
 To have healthy servers, it is important to have an automated check that can tell you if something is wrong. Gesund for the rescue!
