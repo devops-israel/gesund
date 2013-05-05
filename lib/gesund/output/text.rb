@@ -1,8 +1,9 @@
 module Gesund::Output
   class Text
     def initialize(checks)
+      results = Gesund::CheckRunner.run(checks)
       failflag = false
-      checks.each do |check|
+      results.each do |check|
         failflag = true if check.first.to_i != 200
         puts "#{check.first}: #{check.last.join}"
       end

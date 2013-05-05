@@ -7,7 +7,12 @@ class Gesund::Dsl
 
   def eval_gesundfile(gesundfile)
     @checks = []
-    contents = File.read(gesundfile.to_s)
+    begin
+      contents = File.read(gesundfile.to_s)
+    rescue => e
+      puts "ERROR reading Gesundfile: #{e.message}"
+      exit 1
+    end
     instance_eval(contents, gesundfile.to_s, 1)
     return @checks
   end

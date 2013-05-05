@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gesund (0.0.1)
+    gesund (0.0.2)
       rack
       thor
 
