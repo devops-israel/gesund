@@ -2,10 +2,13 @@ require "rack"
 
 module Gesund::Output
   class Rack
-    def self.start(checks)
+    def self.start(checks, options={})
       app = self.new
       app.checks = checks
-      ::Rack::Server.start app: app
+      # http://rubydoc.info/github/rack/rack/master/Rack/Server#initialize-instance_method
+      options[:Port] = options.delete 'port'
+      options[:Host] = options.delete 'host'
+      ::Rack::Server.start({ :app => app }.merge(options))
     end
 
     attr_accessor :checks
