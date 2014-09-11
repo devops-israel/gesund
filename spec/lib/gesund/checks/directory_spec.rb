@@ -2,15 +2,15 @@ require "spec_helper"
 
 describe Gesund::Checks::Directory do
   it "sets success to false when arg is not a directory" do
-    File.stub(:directory?).and_return false
+    expect(File).to receive(:directory?) { false }
     chk = described_class.new("somedir")
-    chk.success.should be_false
-    chk.message.should match "Directory somedir is not a directory"
+    expect(chk.success).to equal(false)
+    expect(chk.message).to match "Directory somedir is not a directory"
   end
   it "sets success to true when arg is a directory" do
-    File.stub(:directory?).and_return true
+    expect(File).to receive(:directory?) { true }
     chk = described_class.new("somedir")
-    chk.success.should be_true
-    chk.message.should match "Directory somedir is a directory"
+    expect(chk.success).to equal(true)
+    expect(chk.message).to match "Directory somedir is a directory"
   end
 end
