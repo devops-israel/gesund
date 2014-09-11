@@ -12,6 +12,14 @@ describe Gesund::CLI do
     end
   end
   context "#http" do
+    let(:default_opts) do
+      { 'port' => 9998,
+        'host' => '0.0.0.0',
+        'daemonize' => false,
+        'debug' => false,
+        'warn' => true
+      }
+    end
     it "should raise an error when the Gesundfile is not readable" do
       expect(File).to receive(:readable?).with(gesundfile) { false }
       expect { subject.http }.to raise_error(Errno::EACCES, /Can't read file #{gesundfile}/)
@@ -22,7 +30,7 @@ describe Gesund::CLI do
       end
       it "evaluates a supplied gesundfile" do
         expect(Gesund::Dsl).to receive(:evaluate).with(gesundfile) { ['checks-http'] }
-        expect(Gesund::Output::Rack).to receive(:start).with(['checks-http'], {})
+        expect(Gesund::Output::Rack).to receive(:start).with(['checks-http'], default_opts)
         subject.http
       end
     end

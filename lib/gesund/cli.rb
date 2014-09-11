@@ -23,8 +23,14 @@ module Gesund
     option :warn, :type => :boolean, :default => true, :desc => 'turn on warnings'
     desc "http", "Starts a web server that answers to requests with results of checks from Gesundfile"
     def http
-      opts = options.dup
-      gesundfile = File.expand_path(opts.delete(:gesundfile))
+      opts = { # defaults
+        'port'      => 9998,
+        'host'      => '0.0.0.0',
+        'daemonize' => false,
+        'debug'     => false,
+        'warn'      => true
+      }.merge(options.to_hash)
+      gesundfile = File.expand_path(opts.delete('gesundfile'))
       raise Errno::EACCES, "Can't read file #{gesundfile}" unless File.readable?(gesundfile)
       checks = Gesund::Dsl.evaluate(gesundfile)
       Gesund::Output::Rack.start(checks, opts)
