@@ -8,6 +8,7 @@ module Gesund::Output
       # http://rubydoc.info/github/rack/rack/master/Rack/Server#initialize-instance_method
       options[:Port] = options.delete 'port'
       options[:Host] = options.delete 'host'
+      options[:AccessLog] = options.delete 'accesslog'
       ::Rack::Server.start({ :app => app }.merge(options))
     end
 
