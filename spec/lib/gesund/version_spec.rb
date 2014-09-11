@@ -1,3 +1,3 @@
 describe Gesund::VERSION do
-  it { should == "0.0.4" }
+  it { should == "0.0.5" }
 end
